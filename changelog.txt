@@ -1,5 +1,11 @@
+Version 1.16-1.1
+- Added Pirate Speak(en_pt) lang file
+- Added Deitsch(de_at) lang file
+- Changed some Method and Class names
+- Fixed German(de_de) lang file
 
-Version 1.16-1.0
+
+Version 1.16-1.1
 - Added Spanish(es_es) lang file
 - Added Item per Fuel Tooltip
 - Added Burnspeed Tooltip
