@@ -1,4 +1,4 @@
-
+![alt text](https://github.com/GeradesoLukas/etiiin/blob/main/images/etiiin_banner.png?raw=true)
 Exactly The Item Info I Needed(ETIIIN) adds useful info some people might need and some might not... but that is the great part about configs, isn't it? It doesn't end here, though! There is easy mod support due to item tags. Modpack devs can add items to the tag if they are still missing the tooltips.
 
 Current Features:
