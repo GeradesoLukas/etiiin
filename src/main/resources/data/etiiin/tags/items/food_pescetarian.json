@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#etiiin:food_vegetarian",
+    "minecraft:salmon",
+    "minecraft:cooked_salmon",
+    "minecraft:cod",
+    "minecraft:cooked_cod",
+    "minecraft:tropical_fish",
+    "minecraft:pufferfish"
+  ]
+}

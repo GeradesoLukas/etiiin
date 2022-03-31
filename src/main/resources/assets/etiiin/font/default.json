@@ -1,0 +1,376 @@
+{
+    "providers": [
+
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/nutrition_full.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEff1"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/nutrition_half.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEff2"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/saturation_full.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEff3"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/saturation_half.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEff4"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/nutrition_empty.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEff5"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/saturation_empty.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEff6"
+            ]
+        },
+
+
+
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/poison.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEfe1"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/hunger.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEfe2"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/nausea.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEfe3"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/regeneration.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEfe4"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/resistance.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEfe5"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/fire_resistance.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEfe6"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/absorption.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEfe7"
+            ]
+        },
+
+
+
+
+
+
+
+
+
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/flexitarian.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEfa0"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/flexitarian_gray.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEfa1"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/pescetarian.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEfa2"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/pescetarian_gray.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEfa3"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/vegetarian.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEfa4"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/vegetarian_gray.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEfa5"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/vegan.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEfa6"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/vegan_gray.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEfa7"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/halal.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEfa8"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/halal_gray.png",
+            "ascent": 8,
+            "height": 8,
+            "chars": [
+                "\uEfa9"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/burnspeed.png",
+            "ascent": 10,
+            "height": 11,
+            "chars": [
+                "\uEaf1"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/bee_adult.png",
+            "ascent": 8,
+            "height": 12,
+            "chars": [
+                "\uEaf2"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/bee_baby.png",
+            "ascent": 8,
+            "height": 12,
+            "chars": [
+                "\uEaf3"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/burning.png",
+            "ascent": 9,
+            "height": 10,
+            "chars": [
+                "\uEaf4"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/durability.png",
+            "ascent": 9,
+            "height": 10,
+            "chars": [
+                "\uEaf5"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/repaircost.png",
+            "ascent": 9,
+            "height": 10,
+            "chars": [
+                "\uEaf6"
+            ]
+        },
+
+
+
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/honeyjar_0.png",
+            "ascent": 8,
+            "height": 12,
+            "chars": [
+                "\uEab0"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/honeyjar_1.png",
+            "ascent": 8,
+            "height": 12,
+            "chars": [
+                "\uEab1"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/honeyjar_2.png",
+            "ascent": 8,
+            "height": 12,
+            "chars": [
+                "\uEab2"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/honeyjar_3.png",
+            "ascent": 8,
+            "height": 12,
+            "chars": [
+                "\uEab3"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/honeyjar_4.png",
+            "ascent": 8,
+            "height": 12,
+            "chars": [
+                "\uEab4"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/honeyjar_5.png",
+            "ascent": 8,
+            "height": 12,
+            "chars": [
+                "\uEab5"
+            ]
+        },
+
+
+
+
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/harvestlevel_stone.png",
+            "ascent": 8,
+            "height": 10,
+            "chars": [
+                "\uEaa0"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/harvestlevel_iron.png",
+            "ascent": 8,
+            "height": 10,
+            "chars": [
+                "\uEaa1"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/harvestlevel_diamond.png",
+            "ascent": 8,
+            "height": 10,
+            "chars": [
+                "\uEaa2"
+            ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/harvestlevel_obsidian.png",
+            "ascent": 8,
+            "height": 10,
+            "chars": [
+                "\uEaa3"
+            ]
+        }
+
+    ]
+}

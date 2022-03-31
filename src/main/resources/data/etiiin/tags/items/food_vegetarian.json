@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#etiiin:food_vegan",
+    "minecraft:honey_bottle",
+    "minecraft:cake",
+    "minecraft:pumpkin_pie",
+    "minecraft:milk_bucket",
+    "minecraft:egg"
+
+  ]
+}

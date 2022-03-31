@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:golden_apple",
+    "minecraft:enchanted_golden_apple",
+    "minecraft:rotten_flesh",
+    "minecraft:spider_eye",
+    "minecraft:pufferfish",
+    "minecraft:pufferfish",
+    "minecraft:chicken",
+    "minecraft:poisonous_potato"
+  ]
+}

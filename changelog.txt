@@ -1,0 +1,23 @@
+
+Version 1.16-1.0
+- Added Spanish(es_es) lang file
+- Added Item per Fuel Tooltip
+- Added Burnspeed Tooltip
+- Added Durability Tooltip
+- Added Repaircost Tooltip
+- Added Harvestlevel Tooltip
+- Added Bee Hive Info Tooltip
+- Added Icon Tooltips for diet
+- Added Option to have the old Text Versions for diet
+- Fixed German(de_de) lang file
+- Fixed Config not working
+- Changed the Nutrition and Saturation System to work with the new Icon system if the values exceed 20/2.0
+
+
+
+Version 1.16-1.0
+- initial release
+- Added Food Information
+- Added English(en_us) lang file
+- Added German(de_de) lang file
+- Added many Tags, that mod authors can use to add compatibility for their mods

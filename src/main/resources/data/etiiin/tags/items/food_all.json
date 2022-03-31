@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#etiiin:food_flexitarian",
+    "#etiiin:food_pescetarian",
+    "#etiiin:food_vegetarian",
+    "#etiiin:food_vegan",
+    "#etiiin:food_not_halal"
+  ]
+}
