@@ -308,9 +308,9 @@ public class ItemEvents {
                 //Bee Hives
 
                 if(config_tooltips_bee_hives && stack.getItem().isIn(ModTags.Items.BEEHIVES)) {
-                   Optional<BeeHiveUtils.BeeData> optional = BeeHiveUtils.extractBeeData(stack);
+                   Optional<BeeHiveUtils.BeeHiveData> optional = BeeHiveUtils.extractBeeHiveData(stack);
                       if (optional.isPresent()) {
-                        BeeHiveUtils.BeeData data = optional.get();
+                        BeeHiveUtils.BeeHiveData data = optional.get();
 
                           String blockhoneylevel = null;
 
