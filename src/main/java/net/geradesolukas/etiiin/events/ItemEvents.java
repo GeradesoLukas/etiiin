@@ -165,7 +165,7 @@ public class ItemEvents {
                             tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").appendSibling(new TranslationTextComponent("tooltip.hunger.icon." + Objects.requireNonNull(item.getFood()).getHealing()).setStyle(NEWFONT)));
                         }
 
-                        if(Objects.requireNonNull(item.getFood()).getHealing() >= 20 ) {
+                        if(Objects.requireNonNull(item.getFood()).getHealing() > 20 ) {
                             double nutritionvalue = item.getFood().getHealing();
                             nutritionvalue /= 2;
                             tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").appendSibling(new StringTextComponent(doubleDecimalFormat.format(nutritionvalue) + "x ").setStyle(GRAY)).appendSibling(new StringTextComponent("\uEFF1").setStyle(NEWFONT)));
@@ -174,13 +174,21 @@ public class ItemEvents {
 
 
                        }
+
+
+
                     if (config_tooltip_saturation && item.isFood()) {
-                        if(Objects.requireNonNull(item.getFood()).getSaturation() <= 2.0 ) {
-                            tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").appendSibling(new TranslationTextComponent("tooltip.saturation.icon." + Objects.requireNonNull(item.getFood()).getSaturation()).setStyle(NEWFONT)));
+
+                        float saturationdisplayvalue = Objects.requireNonNull(item.getFood()).getSaturation();
+                        //saturationdisplayvalue *= item.getFood().getHealing();
+                        //saturationdisplayvalue *= 2f;
+
+                        if(saturationdisplayvalue <= 2.0 ) {
+                            tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").appendSibling(new TranslationTextComponent("tooltip.saturation.icon." + saturationdisplayvalue).setStyle(NEWFONT)));
 
                         }
-                        if(item.getFood().getSaturation() >= 2.0 ) {
-                            double saturationvalue = item.getFood().getSaturation();
+                        if(saturationdisplayvalue > 2.0 ) {
+                            double saturationvalue = saturationdisplayvalue;
                             saturationvalue *= 10;
                             saturationvalue /= 2;
                             tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").appendSibling(new StringTextComponent(doubleDecimalFormat.format(saturationvalue) + "x ").setStyle(GRAY)).appendSibling(new StringTextComponent("\uEFF3").setStyle(NEWFONT)));
