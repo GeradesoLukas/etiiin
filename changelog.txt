@@ -3,6 +3,7 @@ Version 1.16-1.2
 - Added Deitsch(de_at) lang file
 - Changed some Method and Class names
 - Fixed German(de_de) lang file
+- Fixed an issue, where the mod did not know what to do if the item had 2.0 saturation or 20 hunger
 
 
 Version 1.16-1.1
