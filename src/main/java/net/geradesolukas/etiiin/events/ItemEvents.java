@@ -4,7 +4,6 @@ package net.geradesolukas.etiiin.events;
 import net.geradesolukas.etiiin.Etiiin;
 import net.geradesolukas.etiiin.config.EtiiinConfig;
 import net.geradesolukas.etiiin.util.BeeHiveUtils;
-import net.geradesolukas.etiiin.util.ModTags;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,6 +16,8 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
+
 import java.text.DecimalFormat;
 import java.util.*;
 
@@ -32,24 +33,24 @@ public class ItemEvents {
         ItemStack stack = event.getItemStack();
         Item item = stack.getItem();
         PlayerEntity player = event.getPlayer();
-        Boolean config_tooltips_all = EtiiinConfig.etiin_info_tooltips.get();
-        Boolean config_tooltips_food = EtiiinConfig.food_info_tooltips.get();
-        Boolean config_tooltip_flexitarian = EtiiinConfig.flexitarian_info_tooltip.get();
-        Boolean config_tooltip_pescetarian = EtiiinConfig.pescetarian_info_tooltip.get();
-        Boolean config_tooltip_vegetarian = EtiiinConfig.vegetarian_info_tooltip.get();
-        Boolean config_tooltip_vegan = EtiiinConfig.vegan_info_tooltip.get();
-        Boolean config_tooltip_halal = EtiiinConfig.halal_info_tooltip.get();
-        Boolean config_tooltip_nutrition = EtiiinConfig.nutrition_info_tooltip.get();
-        Boolean config_tooltip_saturation = EtiiinConfig.saturation_info_tooltip.get();
-        Boolean config_tooltip_effect = EtiiinConfig.effect_info_tooltip.get();
-        Boolean config_tooltips_fuel = EtiiinConfig.fuel_info_tooltips.get();
-        Boolean config_tooltips_ipf = EtiiinConfig.ipf_info_tooltips.get();
-        Boolean config_tooltips_furnace = EtiiinConfig.furnace_info_tooltips.get();
-        Boolean config_tooltips_gear = EtiiinConfig.gear_info_tooltips.get();
-        Boolean config_tooltips_durability = EtiiinConfig.durability_info_tooltips.get();
-        Boolean config_tooltips_repaircost = EtiiinConfig.repaircost_info_tooltips.get();
-        Boolean config_tooltips_harvestlevel = EtiiinConfig.harvestlevel_info_tooltips.get();
-        Boolean config_tooltips_bee_hives = EtiiinConfig.beehive_info_tooltips.get();
+        Boolean config_tooltips_all = EtiiinConfig.Client.etiin_info_tooltips.get();
+        Boolean config_tooltips_food = EtiiinConfig.Client.food_info_tooltips.get();
+        Boolean config_tooltip_flexitarian = EtiiinConfig.Client.flexitarian_info_tooltip.get();
+        Boolean config_tooltip_pescetarian = EtiiinConfig.Client.pescetarian_info_tooltip.get();
+        Boolean config_tooltip_vegetarian = EtiiinConfig.Client.vegetarian_info_tooltip.get();
+        Boolean config_tooltip_vegan = EtiiinConfig.Client.vegan_info_tooltip.get();
+        Boolean config_tooltip_halal = EtiiinConfig.Client.halal_info_tooltip.get();
+        Boolean config_tooltip_nutrition = EtiiinConfig.Client.nutrition_info_tooltip.get();
+        Boolean config_tooltip_saturation = EtiiinConfig.Client.saturation_info_tooltip.get();
+        Boolean config_tooltip_effect = EtiiinConfig.Client.effect_info_tooltip.get();
+        Boolean config_tooltips_fuel = EtiiinConfig.Client.fuel_info_tooltips.get();
+        Boolean config_tooltips_ipf = EtiiinConfig.Client.ipf_info_tooltips.get();
+        Boolean config_tooltips_furnace = EtiiinConfig.Client.furnace_info_tooltips.get();
+        Boolean config_tooltips_gear = EtiiinConfig.Client.gear_info_tooltips.get();
+        Boolean config_tooltips_durability = EtiiinConfig.Client.durability_info_tooltips.get();
+        Boolean config_tooltips_repaircost = EtiiinConfig.Client.repaircost_info_tooltips.get();
+        Boolean config_tooltips_harvestlevel = EtiiinConfig.Client.harvestlevel_info_tooltips.get();
+        Boolean config_tooltips_bee_hives = EtiiinConfig.Client.beehive_info_tooltips.get();
 
 
         double itemperfuel = ForgeHooks.getBurnTime(new ItemStack(item.getItem()), IRecipeType.SMELTING);
@@ -78,15 +79,30 @@ public class ItemEvents {
         Style NEWFONT = Style.EMPTY.setFontId(ETIIINFONT);
         Style DEFAULTFONT = Style.EMPTY.setFontId(Style.DEFAULT_FONT);
         String arrow = " §7▶ ";
+        boolean is_food_all = EtiiinConfig.Server.flexitarian.get().contains(ForgeRegistries.ITEMS.getKey(item).toString()) ||
+                EtiiinConfig.Server.pescetarian.get().contains(ForgeRegistries.ITEMS.getKey(item).toString()) ||
+                EtiiinConfig.Server.vegetarian.get().contains(ForgeRegistries.ITEMS.getKey(item).toString()) ||
+                EtiiinConfig.Server.vegan.get().contains(ForgeRegistries.ITEMS.getKey(item).toString()) ||
+                EtiiinConfig.Server.not_halal.get().contains(ForgeRegistries.ITEMS.getKey(item).toString());
 
         boolean is_gear_item = item instanceof TieredItem || item instanceof ArmorItem || item instanceof ShootableItem || item instanceof TridentItem || item instanceof ShieldItem || item instanceof FlintAndSteelItem;
         boolean is_smelter_item = stack.getItem() == Items.FURNACE || stack.getItem() == Items.BLAST_FURNACE || stack.getItem() == Items.SMOKER || stack.getItem() == Items.CAMPFIRE || stack.getItem() == Items.SOUL_CAMPFIRE;
 
-        boolean is_etiiin_affected_item = AbstractFurnaceTileEntity.isFuel(stack) || item.isFood() || stack.getItem().isIn(ModTags.Items.FOOD_ALL) || is_gear_item || is_smelter_item || stack.getItem().isIn(ModTags.Items.BEEHIVES);
+        boolean is_etiiin_affected_item = AbstractFurnaceTileEntity.isFuel(stack) || item.isFood() || is_food_all || is_gear_item || is_smelter_item || EtiiinConfig.Server.beehives.get().contains(ForgeRegistries.ITEMS.getKey(item).toString());
 
 
-
-
+        boolean is_flexitarian = EtiiinConfig.Server.flexitarian.get().contains(ForgeRegistries.ITEMS.getKey(item).toString()) ||
+                EtiiinConfig.Server.pescetarian.get().contains(ForgeRegistries.ITEMS.getKey(item).toString()) ||
+                EtiiinConfig.Server.vegetarian.get().contains(ForgeRegistries.ITEMS.getKey(item).toString())||
+                EtiiinConfig.Server.vegan.get().contains(ForgeRegistries.ITEMS.getKey(item).toString());
+        boolean is_pescetarian = EtiiinConfig.Server.pescetarian.get().contains(ForgeRegistries.ITEMS.getKey(item).toString()) ||
+                EtiiinConfig.Server.vegetarian.get().contains(ForgeRegistries.ITEMS.getKey(item).toString())||
+                EtiiinConfig.Server.vegan.get().contains(ForgeRegistries.ITEMS.getKey(item).toString());
+        boolean is_vegetarian = EtiiinConfig.Server.vegetarian.get().contains(ForgeRegistries.ITEMS.getKey(item).toString())||
+                EtiiinConfig.Server.vegan.get().contains(ForgeRegistries.ITEMS.getKey(item).toString());
+        boolean is_vegan = EtiiinConfig.Server.vegan.get().contains(ForgeRegistries.ITEMS.getKey(item).toString());
+        boolean is_not_halal = EtiiinConfig.Server.not_halal.get().contains(ForgeRegistries.ITEMS.getKey(item).toString());
+        boolean is_effect_food = EtiiinConfig.Server.effect_food.get().contains(ForgeRegistries.ITEMS.getKey(item).toString());
 
 
 
@@ -198,8 +214,8 @@ public class ItemEvents {
 
                     }
 
-                    if (stack.getItem().isIn(ModTags.Items.FOOD_ALL)) {
-                        if (config_tooltip_effect && item.isFood() && stack.getItem().isIn(ModTags.Items.FOOD_WITH_EFFECTS)) {
+                    if (is_food_all) {
+                        if (config_tooltip_effect && item.isFood() && is_effect_food) {
                             //item.getFood().getEffects() != null
                             //stack.getItem().isIn(ModTags.Items.FOOD_WITH_EFFECTS)
 
@@ -230,37 +246,37 @@ public class ItemEvents {
                             }
 
                         }
-                        if (EtiiinConfig.diet_info_tooltip_mode.get() == EtiiinConfig.DietDisplayType.TEXT) {
+                        if (EtiiinConfig.Client.diet_info_tooltip_mode.get() == EtiiinConfig.Client.DietDisplayType.TEXT) {
                             if (config_tooltip_flexitarian) {
-                                if (stack.getItem().isIn(ModTags.Items.FLEXITARIAN)) {
+                                if (is_flexitarian) {
                                     tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").appendSibling(new TranslationTextComponent("tooltip.etiiin.flexitarian")));
                                 } else {
                                     tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").appendSibling(new TranslationTextComponent("tooltip.etiiin.flexitarian_off")));
                                 }
                             }
                             if (config_tooltip_pescetarian) {
-                                if (stack.getItem().isIn(ModTags.Items.PESCETARIAN)) {
+                                if (is_pescetarian) {
                                     tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").appendSibling(new TranslationTextComponent("tooltip.etiiin.pescetarian")));
                                 } else {
                                     tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").appendSibling(new TranslationTextComponent("tooltip.etiiin.pescetarian_off")));
                                 }
                             }
                             if (config_tooltip_vegetarian) {
-                                if (stack.getItem().isIn(ModTags.Items.VEGETARIAN)) {
+                                if (is_vegetarian) {
                                     tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").appendSibling(new TranslationTextComponent("tooltip.etiiin.vegetarian")));
                                 } else {
                                     tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").appendSibling(new TranslationTextComponent("tooltip.etiiin.vegetarian_off")));
                                 }
                             }
                             if (config_tooltip_vegan) {
-                                if (stack.getItem().isIn(ModTags.Items.VEGAN)) {
+                                if (is_vegan) {
                                     tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").appendSibling(new TranslationTextComponent("tooltip.etiiin.vegan")));
                                 } else {
                                     tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").appendSibling(new TranslationTextComponent("tooltip.etiiin.vegan_off")));
                                 }
                             }
                             if (config_tooltip_halal) {
-                                if (stack.getItem().isIn(ModTags.Items.NOT_HALAL)) {
+                                if (is_not_halal) {
                                     tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").appendSibling(new TranslationTextComponent("tooltip.etiiin.halal_off")));
                                 } else {
                                     tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").appendSibling(new TranslationTextComponent("tooltip.etiiin.halal")));
@@ -270,38 +286,38 @@ public class ItemEvents {
 
                         }
 
-                        if (EtiiinConfig.diet_info_tooltip_mode.get() == EtiiinConfig.DietDisplayType.ICON) {
+                        if (EtiiinConfig.Client.diet_info_tooltip_mode.get() == EtiiinConfig.Client.DietDisplayType.ICON) {
                             String flexitarian;
                             String pescetarian;
                             String vegetarian;
                             String vegan;
                             String not_halal;
 
-                            if (config_tooltip_flexitarian && stack.getItem().isIn(ModTags.Items.FLEXITARIAN)) {
+                            if (config_tooltip_flexitarian && is_flexitarian) {
                                 flexitarian = "\uEfa0";
                             } else {
                                 flexitarian = "\uEfa1";
                             }
 
-                            if (config_tooltip_pescetarian && stack.getItem().isIn(ModTags.Items.PESCETARIAN)) {
+                            if (config_tooltip_pescetarian && is_pescetarian) {
                                 pescetarian = "\uEfa2";
                             } else {
                                 pescetarian = "\uEfa3";
                             }
 
-                            if (config_tooltip_vegetarian && stack.getItem().isIn(ModTags.Items.VEGETARIAN)) {
+                            if (config_tooltip_vegetarian && is_vegetarian) {
                                 vegetarian = "\uEfa4";
                             } else {
                                 vegetarian = "\uEfa5";
                             }
 
-                            if (config_tooltip_vegan && stack.getItem().isIn(ModTags.Items.VEGAN)) {
+                            if (config_tooltip_vegan && is_vegan) {
                                 vegan = "\uEfa6";
                             } else {
                                 vegan = "\uEfa7";
                             }
 
-                            if (config_tooltip_halal && stack.getItem().isIn(ModTags.Items.NOT_HALAL)) {
+                            if (config_tooltip_halal && is_not_halal) {
                                 not_halal = "\uEfa9";
                             } else {
                                 not_halal = "\uEfa8";
@@ -315,7 +331,7 @@ public class ItemEvents {
 
                 //Bee Hives
 
-                if(config_tooltips_bee_hives && stack.getItem().isIn(ModTags.Items.BEEHIVES)) {
+                if(config_tooltips_bee_hives && EtiiinConfig.Server.beehives.get().contains(ForgeRegistries.ITEMS.getKey(item).toString())) {
                    Optional<BeeHiveUtils.BeeHiveData> optional = BeeHiveUtils.extractBeeHiveData(stack);
                       if (optional.isPresent()) {
                         BeeHiveUtils.BeeHiveData data = optional.get();
