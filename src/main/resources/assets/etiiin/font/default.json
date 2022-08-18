@@ -370,6 +370,15 @@
             "chars": [
                 "\uEaa3"
             ]
+        },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/harvestlevel_unknown.png",
+            "ascent": 8,
+            "height": 10,
+            "chars": [
+                "\uEaa9"
+            ]
         }
 
     ]

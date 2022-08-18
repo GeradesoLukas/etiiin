@@ -63,10 +63,8 @@ public class ItemEvents {
         double durability = stack.getMaxDamage();
         durability -= stack.getDamage();
 
-        boolean canHarvestStone = stack.canHarvestBlock(Blocks.STONE.getDefaultState());
-        boolean canHarvestIron = stack.canHarvestBlock(Blocks.IRON_ORE.getDefaultState());
-        boolean canHarvestDiamond = stack.canHarvestBlock(Blocks.DIAMOND_ORE.getDefaultState());
-        boolean canHarvestObsidian = stack.canHarvestBlock(Blocks.OBSIDIAN.getDefaultState());
+
+
 
         DecimalFormat doubleDecimalFormat = new DecimalFormat("#.##");
 
@@ -125,18 +123,22 @@ public class ItemEvents {
 
                 // HarvestLevel
                 if(config_tooltips_gear && config_tooltips_harvestlevel && item instanceof PickaxeItem) {
+                    boolean canHarvestStone = (((ToolItem) stack.getItem()).getTier().getHarvestLevel() <= 0);
+                    boolean canHarvestIron = (((ToolItem) stack.getItem()).getTier().getHarvestLevel() == 1);
+                    boolean canHarvestDiamond = (((ToolItem) stack.getItem()).getTier().getHarvestLevel() == 2);
+                    boolean canHarvestObsidian = (((ToolItem) stack.getItem()).getTier().getHarvestLevel() == 3);
+                    boolean canHarvestBeyond = (((ToolItem) stack.getItem()).getTier().getHarvestLevel() >= 4);
 
-                    if( canHarvestStone && !canHarvestIron&& !canHarvestDiamond && !canHarvestObsidian) {
+                    if(canHarvestStone) {
                         tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").setStyle(DEFAULTFONT).appendSibling(new StringTextComponent( "\uEaa0").setStyle(NEWFONT)));
-                    }
-                    if(canHarvestIron &&!canHarvestDiamond && !canHarvestObsidian) {
+                    }else if(canHarvestIron) {
                         tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").setStyle(DEFAULTFONT).appendSibling(new StringTextComponent( "\uEaa1").setStyle(NEWFONT)));
-                    }
-                    if(canHarvestDiamond && !canHarvestObsidian) {
+                    } else if(canHarvestDiamond) {
                         tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").setStyle(DEFAULTFONT).appendSibling(new StringTextComponent( "\uEaa2").setStyle(NEWFONT)));
-                    }
-                    if(canHarvestObsidian) {
+                    }else if(canHarvestObsidian) {
                         tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").setStyle(DEFAULTFONT).appendSibling(new StringTextComponent( "\uEaa3").setStyle(NEWFONT)));
+                    }else if(canHarvestBeyond) {
+                        tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").setStyle(DEFAULTFONT).appendSibling(new StringTextComponent( "\uEaa9").setStyle(NEWFONT)));
                     }
 
 
