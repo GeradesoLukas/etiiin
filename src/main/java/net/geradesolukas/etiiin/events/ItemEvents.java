@@ -4,6 +4,8 @@ package net.geradesolukas.etiiin.events;
 import net.geradesolukas.etiiin.Etiiin;
 import net.geradesolukas.etiiin.config.EtiiinConfig;
 import net.geradesolukas.etiiin.util.BeeHiveUtils;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.player.PlayerEntity;
@@ -11,6 +13,7 @@ import net.minecraft.item.*;
 import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.tileentity.AbstractFurnaceTileEntity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.SimpleRegistry;
 import net.minecraft.util.text.*;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
@@ -52,6 +55,10 @@ public class ItemEvents {
         Boolean config_tooltips_harvestlevel = EtiiinConfig.Client.harvestlevel_info_tooltips.get();
         Boolean config_tooltips_bee_hives = EtiiinConfig.Client.beehive_info_tooltips.get();
 
+        Boolean config_lightlevel = EtiiinConfig.Client.lightlevel_info_tooltips.get();
+
+        int luminance = ForgeRegistries.BLOCKS.getValue(item.getRegistryName()).getDefaultState().getLightValue();
+        boolean is_glowing_blockitem = luminance > 0;
 
         double itemperfuel = ForgeHooks.getBurnTime(new ItemStack(item.getItem()), IRecipeType.SMELTING);
         itemperfuel /= 200;
@@ -86,7 +93,7 @@ public class ItemEvents {
         boolean is_gear_item = item instanceof TieredItem || item instanceof ArmorItem || item instanceof ShootableItem || item instanceof TridentItem || item instanceof ShieldItem || item instanceof FlintAndSteelItem;
         boolean is_smelter_item = stack.getItem() == Items.FURNACE || stack.getItem() == Items.BLAST_FURNACE || stack.getItem() == Items.SMOKER || stack.getItem() == Items.CAMPFIRE || stack.getItem() == Items.SOUL_CAMPFIRE;
 
-        boolean is_etiiin_affected_item = AbstractFurnaceTileEntity.isFuel(stack) || item.isFood() || is_food_all || is_gear_item || is_smelter_item || EtiiinConfig.Server.beehives.get().contains(ForgeRegistries.ITEMS.getKey(item).toString());
+        boolean is_etiiin_affected_item = AbstractFurnaceTileEntity.isFuel(stack) || item.isFood() || is_food_all || is_gear_item || is_smelter_item || EtiiinConfig.Server.beehives.get().contains(ForgeRegistries.ITEMS.getKey(item).toString()) || is_glowing_blockitem;
 
 
         boolean is_flexitarian = EtiiinConfig.Server.flexitarian.get().contains(ForgeRegistries.ITEMS.getKey(item).toString()) ||
@@ -171,6 +178,14 @@ public class ItemEvents {
                     }
                 }
 
+                //Luminance
+                if(config_lightlevel) {
+                    if (is_glowing_blockitem) {
+                        tooltip.add(new TranslationTextComponent("tooltip.etiiin.arrow").setStyle(DEFAULTFONT).appendSibling(new StringTextComponent("\uEaf7 ").setStyle(NEWFONT)).appendSibling(new StringTextComponent( ""+luminance).setStyle(GRAY)));
+
+                    }
+
+                }
 
 
 
@@ -388,3 +403,4 @@ public class ItemEvents {
         }
     }
 }
+

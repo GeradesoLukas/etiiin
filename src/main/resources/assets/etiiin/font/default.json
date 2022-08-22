@@ -274,6 +274,15 @@
                 "\uEaf6"
             ]
         },
+        {
+            "type": "bitmap",
+            "file": "etiiin:font/lightlevel.png",
+            "ascent": 9,
+            "height": 10,
+            "chars": [
+                "\uEaf7"
+            ]
+        },
 
 
 

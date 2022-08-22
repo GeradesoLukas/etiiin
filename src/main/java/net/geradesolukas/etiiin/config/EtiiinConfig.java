@@ -37,6 +37,8 @@ public class EtiiinConfig {
 
         public static final ForgeConfigSpec.ConfigValue<Boolean> beehive_info_tooltips;
 
+        public static final ForgeConfigSpec.ConfigValue<Boolean> lightlevel_info_tooltips;
+
         static {
             BUILDER.comment("General Configuration").push("common");
             etiin_info_tooltips = BUILDER.comment("This Option will allow you to disable all tooltips the Mod adds").define("Enable Etiiin Tooltips",true);
@@ -83,8 +85,12 @@ public class EtiiinConfig {
 
             BUILDER.comment("Misc Configuration").push("misc");
             beehive_info_tooltips = BUILDER.comment("This Option will allow you to the \"Bee Hive\" Tooltips").define("Enable Bee Hive Tooltips",true);
+            lightlevel_info_tooltips = BUILDER.comment("This Option will allow you to the \"Light Level\" Tooltips").define("Enable Light Level Tooltips",true);
 
             BUILDER.pop();
+
+
+
             SPEC = BUILDER.build();
         }
     }
